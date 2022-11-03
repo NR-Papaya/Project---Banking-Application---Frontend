@@ -1,0 +1,34 @@
+header {
+  margin: 0px;
+  padding: 20px;
+  background-color: #bd3a3a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 4vw;
+}
+
+nav {
+  margin: 0px 150px;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5vw;
+}

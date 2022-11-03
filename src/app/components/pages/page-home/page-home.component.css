@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#mainSection {
+  background-image: url("../../../../assets/images/bankImg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: 100px 40px;
+  height: 80vh;
+}
+
+#mainSection div {
+}

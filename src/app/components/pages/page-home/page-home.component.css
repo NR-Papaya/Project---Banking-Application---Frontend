@@ -5,21 +5,30 @@ main {
 }
 
 #mainSection {
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
   flex-direction: column;
-  
 }
 
-#mainSection div {
-  display:flex;
+#mainDiv {
+  display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   background-image: url("../../../../assets/images/bankImg.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 48px;
-  height: 78vh;
+  height: 80vh;
   width: 95%;
   justify-self: center;
   align-self: center;
+}
+
+#slogan {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

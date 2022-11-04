@@ -1,10 +1,5 @@
-#rootDiv {
-  display: flex;
-  flex-direction: column;
-}
-
-#rootDiv app-footer {
-  position: sticky;
+app-footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
 }

@@ -8,7 +8,7 @@ import { PageUserHomeComponent } from './components/pages/page-user-home/page-us
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageHomeFormComponent } from './components/pages/page-home/page-home-form/page-home-form.component';
-import { RegisterFormModalComponent } from './components/pages/page-home/page-home-form/register-form-modal/register-form-modal.component';
+import { PageHomeRegisterFormComponent } from './components/pages/page-home/page-home-register-form/page-home-register-form.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +18,10 @@ import { RegisterFormModalComponent } from './components/pages/page-home/page-ho
     HeaderComponent,
     FooterComponent,
     PageHomeFormComponent,
-    RegisterFormModalComponent
+    PageHomeRegisterFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

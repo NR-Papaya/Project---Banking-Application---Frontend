@@ -5,13 +5,21 @@ main {
 }
 
 #mainSection {
-  background-image: url("../../../../assets/images/bankImg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  margin: 100px 40px;
-  height: 80vh;
+  display:flex;
+  width:100%;
+  flex-direction: column;
+  
 }
 
 #mainSection div {
+  display:flex;
+  flex-direction: row;
+  background-image: url("../../../../assets/images/bankImg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 48px;
+  height: 78vh;
+  width: 95%;
+  justify-self: center;
+  align-self: center;
 }

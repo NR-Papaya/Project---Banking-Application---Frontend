@@ -1,1 +1,41 @@
-<p>page-home-register-form works!</p>
+<form>
+    <h1>Welcome!</h1>
+    <div class="mb-3">
+      <label for="userName" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" />
+    </div>
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" />
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" />
+      </div>
+    <div id="buttonGroup">
+      <button type="button" class="btn btn-danger" id="signInButton">
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        id="registerButton"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  

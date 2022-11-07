@@ -6,7 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./page-home-form.component.css'],
 })
 export class PageHomeFormComponent implements OnInit {
-  registerState: boolean = false;
 
   constructor() {}
 
@@ -15,14 +14,9 @@ export class PageHomeFormComponent implements OnInit {
   @Output()
   newViewEvent = new EventEmitter<boolean>();
 
-  toggleEventFormView() {
-    this.newViewEvent.emit(true);
+  toggleEventForm(value:boolean) {
+    this.newViewEvent.emit(value);
     console.log('event triggered');
   }
 
-  toggleRegister(): void {
-    this.registerState = !this.registerState;
-    this.toggleEventFormView();
-    console.log('toggle Reg triggered in child' + this.registerState);
-  }
 }

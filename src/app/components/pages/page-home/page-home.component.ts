@@ -12,8 +12,7 @@ export class PageHomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleRegister(): void {
-    this.registerState = !this.registerState;
-    console.log('triggered state' + this.registerState);
+  toggleForms(boolState: boolean): void {
+    this.registerState = boolState;
   }
 }

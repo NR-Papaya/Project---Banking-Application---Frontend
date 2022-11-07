@@ -1,8 +1,13 @@
 <main>
   <section id="mainSection">
     <div id="mainDiv">
-      <app-page-home-form *ngIf="!registerState" (toggleEventFormView)="toggleRegister()"></app-page-home-form>
-      <app-page-home-register-form *ngIf="registerState"></app-page-home-register-form>
+      <app-page-home-form
+        *ngIf="!registerState"
+        (newViewEvent)="toggleForms($event)"
+      ></app-page-home-form>
+      <app-page-home-register-form
+        *ngIf="registerState"
+      ></app-page-home-register-form>
       <div id="slogan">
         <h1>Save and Invest</h1>
         <h1>Make your dreams come true</h1>

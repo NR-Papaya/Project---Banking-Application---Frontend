@@ -6,15 +6,27 @@
       type="text"
       class="form-control"
       id="userName"
-      aria-describedby="emailHelp"
+      name="userName"
+      [(ngModel)]="user_name"
     />
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" />
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      [(ngModel)]="user_password"
+    />
   </div>
   <div id="buttonGroup">
-    <button type="button" class="btn btn-danger" id="signInButton">
+    <button
+      type="button"
+      class="btn btn-danger"
+      id="signInButton"
+      (click)="submitLogin()"
+    >
       Sign In
     </button>
     <button

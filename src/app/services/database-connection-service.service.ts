@@ -10,14 +10,11 @@ import { LoginCredentialModel } from '../models/loginCredentialModel';
 export class DatabaseConnectionServiceService {
   constructor(private httpClient: HttpClient) {}
 
-  attemptLogin(credintials: LoginCredentialModel): Observable<UserModel> {
+  attemptLogin(credintials: LoginCredentialModel): Observable<any> {
     const options = {
       body: LoginCredentialModel,
     };
 
-    return this.httpClient.post<UserModel>(
-      'http://localhost:8080/logIn',
-      options
-    );
+    return this.httpClient.post<any>('http://localhost:8080/logIn', options);
   }
 }

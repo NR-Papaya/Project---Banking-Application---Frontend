@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageHomeFormComponent } from './components/pages/page-home/page-home-form/page-home-form.component';
 import { PageHomeRegisterFormComponent } from './components/pages/page-home/page-home-register-form/page-home-register-form.component';
 import { FormsModule } from '@angular/forms';
+import { DatabaseConnectionService } from './services/database-connection.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     PageHomeRegisterFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [DatabaseConnectionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,14 +7,11 @@ import { LoginCredentialModel } from '../models/loginCredentialModel';
 @Injectable({
   providedIn: 'root',
 })
-export class DatabaseConnectionServiceService {
+export class DatabaseConnectionService {
   constructor(private httpClient: HttpClient) {}
 
   attemptLogin(credintials: LoginCredentialModel): Observable<any> {
-    const options = {
-      body: LoginCredentialModel,
-    };
-
-    return this.httpClient.post<any>('http://localhost:8080/logIn', options);
+    const data = LoginCredentialModel
+    return this.httpClient.post<any>('http://localhost:8080/logIn', data);
   }
 }

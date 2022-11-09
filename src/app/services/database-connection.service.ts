@@ -10,8 +10,8 @@ import { LoginCredentialModel } from '../models/loginCredentialModel';
 export class DatabaseConnectionService {
   constructor(private httpClient: HttpClient) {}
 
-  attemptLogin(credintials: LoginCredentialModel): Observable<any> {
-    const data = LoginCredentialModel
-    return this.httpClient.post<any>('http://localhost:8080/logIn', data);
+  attemptLogin(credentials: LoginCredentialModel): Observable<any> {
+    let body = JSON.stringify(credentials);
+    return this.httpClient.post<any>('http://localhost:8080/logIn', body);
   }
 }

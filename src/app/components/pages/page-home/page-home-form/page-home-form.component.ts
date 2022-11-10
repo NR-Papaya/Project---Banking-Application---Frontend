@@ -10,7 +10,9 @@ import { DatabaseConnectionService } from 'src/app/services/database-connection.
 export class PageHomeFormComponent implements OnInit {
   user_name: string = '';
   user_password: string = '';
-
+  errorMessage: string = '';
+  
+  
   constructor(private dbService: DatabaseConnectionService) {}
 
   ngOnInit(): void {}
@@ -29,6 +31,6 @@ export class PageHomeFormComponent implements OnInit {
     );
     this.dbService
       .attemptLogin(loginCredentials)
-      .subscribe((data) => console.log(data));
+      .subscribe((data) => console.log(data),(err)=>{this.errorMessage = "login failed"});
   }
 }

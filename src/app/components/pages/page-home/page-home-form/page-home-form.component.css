@@ -7,7 +7,7 @@ form {
   border-radius: 5%;
   width: 400px;
   height: 500px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
@@ -16,4 +16,8 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#errorDiv {
+  color: red;
 }

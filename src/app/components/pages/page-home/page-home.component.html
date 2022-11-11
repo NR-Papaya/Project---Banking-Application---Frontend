@@ -7,6 +7,7 @@
       ></app-page-home-form>
       <app-page-home-register-form
         *ngIf="registerState"
+        (newViewEvent)="toggleForms($event)"
       ></app-page-home-register-form>
       <div id="slogan">
         <h1>Save and Invest</h1>

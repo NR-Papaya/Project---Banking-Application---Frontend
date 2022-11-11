@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginCredentialModel } from 'src/app/models/loginCredentialModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-home-form',
@@ -11,9 +12,11 @@ export class PageHomeFormComponent implements OnInit {
   user_name: string = '';
   user_password: string = '';
   errorMessage: string = '';
-  
-  
-  constructor(private dbService: DatabaseConnectionService) {}
+
+  constructor(
+    private dbService: DatabaseConnectionService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -29,8 +32,15 @@ export class PageHomeFormComponent implements OnInit {
       this.user_name,
       this.user_password
     );
-    this.dbService
-      .attemptLogin(loginCredentials)
-      .subscribe((data) => console.log(data),(err)=>{this.errorMessage = "login failed"});
+    this.dbService.attemptLogin(loginCredentials).subscribe(
+      (data) => {
+        if ((data.status = 200)) {
+          this.router.navigate(['/userhome']);
+        }
+      },
+      (err) => {
+        this.errorMessage = 'login failed';
+      }
+    );
   }
 }

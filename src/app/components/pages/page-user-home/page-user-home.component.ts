@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-user-home.component.css']
 })
 export class PageUserHomeComponent implements OnInit {
-
+  
+  viewState:number = 1;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  changeViewState(viewNum:number){
+    this.viewState = viewNum;
+  }
 }

@@ -1,6 +1,5 @@
 export class RegisterModel {
-  //(String user_name, String user_password, String user_first_name, String user_last_name,
-  //    String user_email)
+
 
   constructor(
     public user_name: string,

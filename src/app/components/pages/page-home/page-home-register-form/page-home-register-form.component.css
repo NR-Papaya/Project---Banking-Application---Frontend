@@ -1,20 +1,23 @@
 form {
-    margin: 30px;
-    padding: 30px 20px 50px 20px;
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5%;
-    width: 400px;
-    height: 600px;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-  
-  #buttonGroup {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
+  margin: 30px;
+  padding: 30px 20px 50px 20px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5%;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#buttonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#errorDiv {
+  color: red;
+}

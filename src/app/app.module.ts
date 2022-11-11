@@ -12,6 +12,10 @@ import { PageHomeFormComponent } from './components/pages/page-home/page-home-fo
 import { PageHomeRegisterFormComponent } from './components/pages/page-home/page-home-register-form/page-home-register-form.component';
 import { FormsModule } from '@angular/forms';
 import { DatabaseConnectionService } from './services/database-connection.service';
+import { UserHomeNavComponent } from './components/pages/page-user-home/user-home-nav/user-home-nav.component';
+import { UserAccountsViewComponent } from './components/pages/page-user-home/user-accounts-view/user-accounts-view.component';
+import { UserProfileViewComponent } from './components/pages/page-user-home/user-profile-view/user-profile-view.component';
+import { AccountsDisplayComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/accounts-display.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { DatabaseConnectionService } from './services/database-connection.servic
     FooterComponent,
     PageHomeFormComponent,
     PageHomeRegisterFormComponent,
+    UserHomeNavComponent,
+    UserAccountsViewComponent,
+    UserProfileViewComponent,
+    AccountsDisplayComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatabaseConnectionService],

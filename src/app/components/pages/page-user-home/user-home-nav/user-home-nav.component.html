@@ -1,0 +1,12 @@
+<div id="mainDiv">
+  <div id="selectorDiv">
+    <select [(ngModel)]="optionsView" class="form-select" name="pageSelector" (change)="toggleView()">
+      <option value="1" name="accounts">Accounts</option>
+      <option value="2" name="profile">Profile</option>
+    </select>
+  </div>
+
+  <div id="greetingDiv">
+    <h2>Welcome Back!</h2>
+  </div>
+</div>

@@ -59,8 +59,16 @@
     >
       Cancel
     </button>
-    <button type="button" class="btn btn-success" id="registerButton">
+    <button
+      (click)="registerNewUser()"
+      type="button"
+      class="btn btn-success"
+      id="registerButton"
+    >
       Submit
     </button>
+  </div>
+  <div *ngIf="errorMessage" id="errorDiv">
+    <p>{{ errorMessage }}</p>
   </div>
 </form>

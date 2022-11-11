@@ -1,0 +1,13 @@
+#mainDiv {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+#selectorDiv {
+    margin: 10px 20px;
+}
+
+#greetingDiv {
+  margin: 10px 0px;
+}

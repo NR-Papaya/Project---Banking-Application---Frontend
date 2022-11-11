@@ -13,6 +13,7 @@ export class PageHomeFormComponent implements OnInit {
   user_password: string = '';
   errorMessage: string = '';
 
+  //router imported for nav pushing
   constructor(
     private dbService: DatabaseConnectionService,
     private router: Router

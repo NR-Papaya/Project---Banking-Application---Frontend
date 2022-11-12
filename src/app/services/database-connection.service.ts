@@ -37,18 +37,20 @@ export class DatabaseConnectionService {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     });
-
     return this.httpClient
       .post<any>('http://localhost:8080/register', body, {
         headers,
         observe: 'response',
+        withCredentials: true,
       })
       .pipe(catchError(this.handleError));
   }
 
   retrieveAccounts(): Observable<AccountModel[]> {
     return this.httpClient.get<AccountModel[]>(
-      'http://localhost:8080/Accounts'
+      'http://localhost:8080/Accounts',
+      { withCredentials: true,
+      }
     );
   }
 

@@ -27,6 +27,7 @@ export class DatabaseConnectionService {
       .post<any>('http://localhost:8080/logIn', body, {
         headers,
         observe: 'response',
+        withCredentials: true,
       })
       .pipe(catchError(this.handleError));
   }
@@ -49,8 +50,7 @@ export class DatabaseConnectionService {
   retrieveAccounts(): Observable<AccountModel[]> {
     return this.httpClient.get<AccountModel[]>(
       'http://localhost:8080/Accounts',
-      { withCredentials: true,
-      }
+      { withCredentials: true }
     );
   }
 

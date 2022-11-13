@@ -1,8 +1,9 @@
 <div id="mainDiv">
-    <div id = "accountList">
-        
-    </div>
-    <div id="accountSummary">
-        
-    </div>
+  <div id="accountList">
+    <app-account-cards
+      *ngFor="let acct of accountList"
+      [account]="acct"
+    ></app-account-cards>
+  </div>
+  <div id="accountSummary"></div>
 </div>

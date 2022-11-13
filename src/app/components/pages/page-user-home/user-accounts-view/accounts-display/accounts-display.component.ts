@@ -16,9 +16,9 @@ export class AccountsDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.dbService.retrieveAccounts().subscribe((data) => {
       this.accountList = data;
-      console.log(data);
+
       if (data.length) {
-        console.log(data[0]);
+        this.accountList = data;
         this.activeAccount = data[0];
       }
     });

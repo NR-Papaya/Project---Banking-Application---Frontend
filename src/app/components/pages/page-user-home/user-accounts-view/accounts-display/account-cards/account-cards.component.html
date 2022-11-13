@@ -1,0 +1,10 @@
+<div class="card" id="accountCard">
+  <div class="card-header">
+    {{ account.account_type | uppercase }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ account.account_name | uppercase }}</h5>
+    <p class="card-text">Account Number: {{ account.account_number }}</p>
+    <button type="button" class="btn btn-primary">Go somewhere</button>
+  </div>
+</div>

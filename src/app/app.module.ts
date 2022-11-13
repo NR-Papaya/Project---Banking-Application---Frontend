@@ -17,6 +17,7 @@ import { UserAccountsViewComponent } from './components/pages/page-user-home/use
 import { UserProfileViewComponent } from './components/pages/page-user-home/user-profile-view/user-profile-view.component';
 import { AccountsDisplayComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/accounts-display.component';
 import { AccountCardsComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-cards/account-cards.component';
+import { AccountBalanceComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-balance/account-balance.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AccountCardsComponent } from './components/pages/page-user-home/user-ac
     UserProfileViewComponent,
     AccountsDisplayComponent,
     AccountCardsComponent,
+    AccountBalanceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatabaseConnectionService],

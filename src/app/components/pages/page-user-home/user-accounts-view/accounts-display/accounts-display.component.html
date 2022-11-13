@@ -5,5 +5,7 @@
       [account]="acct"
     ></app-account-cards>
   </div>
-  <div id="accountSummary"></div>
+  <div id="accountSummary">
+    <app-account-balance [currentAccount]="activeAccount"></app-account-balance>
+  </div>
 </div>

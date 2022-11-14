@@ -3,12 +3,14 @@ import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
+  HttpParams,
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UserModel } from '../models/UserModel';
 import { LoginCredentialModel } from '../models/loginCredentialModel';
 import { RegisterModel } from '../models/registerModel';
 import { AccountModel } from '../models/accountModel';
+import { TransactionModel } from '../models/TransactionModel';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +53,22 @@ export class DatabaseConnectionService {
     return this.httpClient.get<AccountModel[]>(
       'http://localhost:8080/Accounts',
       { withCredentials: true }
+    );
+  }
+
+  retrieveTransactions( accountNumber: number): Observable<any>{
+
+      
+    let myparams = new HttpParams().set('tx_account_number', accountNumber);
+
+    let url ='http://localhost:8080/MyAccount/Transactions';
+
+    return this.httpClient.get<TransactionModel[]>(
+      url,  
+      {
+        params: myparams,
+        withCredentials:true 
+      } 
     );
   }
 

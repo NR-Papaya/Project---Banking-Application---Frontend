@@ -18,6 +18,8 @@ import { UserProfileViewComponent } from './components/pages/page-user-home/user
 import { AccountsDisplayComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/accounts-display.component';
 import { AccountCardsComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-cards/account-cards.component';
 import { AccountBalanceComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-balance/account-balance.component';
+import { TransactionsTableComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/transactions-table/transactions-table.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { AccountBalanceComponent } from './components/pages/page-user-home/user-
     AccountsDisplayComponent,
     AccountCardsComponent,
     AccountBalanceComponent,
+    TransactionsTableComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatabaseConnectionService],

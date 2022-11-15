@@ -1,0 +1,14 @@
+#TransactionsDiv {
+  width: 600px;
+  margin: 20px 0px;
+}
+#TransactionsTable {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}

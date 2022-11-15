@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AccountModel } from 'src/app/models/accountModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
 
@@ -22,5 +22,18 @@ export class AccountsDisplayComponent implements OnInit {
         this.activeAccount = data[0];
       }
     });
+  }
+
+  @Output()
+  accountChangeEvent = new EventEmitter();
+
+  updateActiveAccount(accountNumber: number) {
+    let currentAccount = this.accountList.find(
+      (account) => account.account_number == accountNumber
+    );
+    if (currentAccount) {
+      this.activeAccount = currentAccount;
+      this.accountChangeEvent.emit(currentAccount);
+    }
   }
 }

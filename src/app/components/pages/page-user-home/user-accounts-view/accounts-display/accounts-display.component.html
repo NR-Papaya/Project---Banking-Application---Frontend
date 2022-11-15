@@ -3,6 +3,7 @@
     <app-account-cards
       *ngFor="let acct of accountList"
       [account]="acct"
+      (emitAccount)="updateActiveAccount($event)"
     ></app-account-cards>
   </div>
   <div id="accountSummary">

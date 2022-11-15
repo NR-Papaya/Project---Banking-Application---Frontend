@@ -1,5 +1,10 @@
+
 app-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+router-outlet{
+  position: relative;
 }

@@ -1,23 +1,15 @@
 <div id="containerDiv">
-  <app-accounts-display
-    (accountChangeEvent)="updateActiveAccount($event)"
-  ></app-accounts-display>
+  <app-accounts-display (accountChangeEvent)="updateActiveAccount($event)"></app-accounts-display> 
+
   <div id="buttonGroup">
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="setAllTransactions()"
-    >
-      All Transactions
-    </button>
-    <button type="button" class="btn btn-danger" (click)="setDebits()">
-      Track Debits
-    </button>
-    <button type="button" class="btn btn-success" (click)="setCredits()">
-      Track Credits
-    </button>
+    <button id="btn1" type="button" class="btn btn-primary" (click)="setAllTransactions();changeAllTransactionsbtnStyle()"> All Transactions </button> 
+    <button id="btn2" type="button" class="btn btn-primary" (click)="setExpenses();changeExpensesbtnStyle()"> Expenses </button>
+    <button id="btn3" type="button" class="btn btn-primary" (click)="setDeposits();changeDepositsbtnStyle() "> Deposits </button>
   </div>
-  <app-transactions-table
-    [transactionList]="currentTransactionList"
-  ></app-transactions-table>
+
+  <div id="tableButtonGroupOutFlex"> 
+    <h5>{{tableName}}</h5>
+    <app-transactions-table [transactionList]="currentTransactionList"></app-transactions-table>
+  </div>
+
 </div>

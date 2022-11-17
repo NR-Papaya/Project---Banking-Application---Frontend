@@ -1,11 +1,13 @@
 export class TransferModel {
   constructor(
-    public primary_account_number: number,
-    public foreign_account_number: number,
-    public value: number
+    public sender_account_number: number,
+    public receiver_account_number: number,
+    public value: number,
+    public description: string
   ) {
-    this.primary_account_number = primary_account_number;
-    this.foreign_account_number = foreign_account_number;
+    this.sender_account_number = sender_account_number;
+    this.receiver_account_number = receiver_account_number;
     this.value = value;
+    this.description = description;
   }
 }

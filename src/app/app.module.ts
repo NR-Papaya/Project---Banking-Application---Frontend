@@ -19,6 +19,7 @@ import { AccountsDisplayComponent } from './components/pages/page-user-home/user
 import { AccountCardsComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-cards/account-cards.component';
 import { AccountBalanceComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-balance/account-balance.component';
 import { TransactionsTableComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/transactions-table/transactions-table.component';
+import { AccountTransferComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-transfer/account-transfer.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { TransactionsTableComponent } from './components/pages/page-user-home/us
     AccountCardsComponent,
     AccountBalanceComponent,
     TransactionsTableComponent,
+    AccountTransferComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatabaseConnectionService],

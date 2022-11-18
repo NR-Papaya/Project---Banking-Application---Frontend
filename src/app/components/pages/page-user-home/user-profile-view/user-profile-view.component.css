@@ -1,0 +1,66 @@
+#containerDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 10px;
+}
+
+#profileDetailsDiv {
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+#detailsDiv {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20%;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+#identifier {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: flex-end;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+#userInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+    flex-direction: column;
+}
+
+#buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+    flex-direction: column;
+}
+
+#changeEmail {
+    display: flex;
+    padding: 7.5px 0px;
+    border: none;
+    background: none;
+    color: blue;
+    justify-content: flex-start;
+}
+
+#changePassword {
+    display: flex;
+    padding: 7.5px 0px 15px;
+    border: none;
+    background: none;
+    color: blue;
+    justify-content: flex-start;
+}

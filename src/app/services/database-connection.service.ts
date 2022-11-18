@@ -11,7 +11,9 @@ import { LoginCredentialModel } from '../models/loginCredentialModel';
 import { RegisterModel } from '../models/registerModel';
 import { AccountModel } from '../models/accountModel';
 import { TransactionModel } from '../models/TransactionModel';
+import { ProfileModel } from '../models/profileModel';
 import { TransferModel } from '../models/TransferModel';
+
 
 @Injectable({
   providedIn: 'root',
@@ -67,6 +69,15 @@ export class DatabaseConnectionService {
       withCredentials: true,
     });
   }
+  
+  retrieveUserInfo(): Observable<ProfileModel> {
+    return this.httpClient.get<ProfileModel>(
+      'http://localhost:8080/user',
+      { withCredentials: true }
+    );
+  }
+
+
 
   transfer(transferModel: TransferModel): Observable<any> {
     let body = JSON.stringify(transferModel);
@@ -103,3 +114,5 @@ export class DatabaseConnectionService {
     return throwError(() => error);
   }
 }
+
+

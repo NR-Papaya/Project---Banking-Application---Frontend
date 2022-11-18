@@ -1,1 +1,32 @@
-<p>user-profile-view works!</p>
+<div id = "containerDiv">
+    <div id = "profileDetailsDiv">
+        <h2>Profile Details</h2>
+    </div>
+    <div id = "detailsDiv">
+       <div id = "identifier">
+            <p>User Name:</p>
+            <p>First Name:</p>
+            <p>Last Name:</p>
+            <p>Email Address:</p>
+            <p>Password:</p>
+        </div>
+       <div id = "userInfo">
+            <p>{{user.user_name}}</p>
+            <p>{{user.user_first_name}}</p>
+            <p>{{user.user_last_name}}</p>
+            <p>{{user.user_email}}</p>
+            <p>XXXXXXXXXX</p>
+            
+       </div>
+       <div id = "buttons">
+            <div id = "emailButton" (click) = "toggleEmailBox()">
+                <button mat-button id = "changeEmail">Change Email</button>
+            </div>
+            <input *ngIf = "showEmailBox" [(ngModel)] = "email" type = "text">
+            <div id = "passwordButton" (click) = "togglePasswordBox()">
+                <button mat-button id = "changePassword">Change Password</button>
+            </div>
+            <input *ngIf = "showPasswordBox" [(ngModel)] = "password" type = "text">
+        </div>
+    </div>
+</div>

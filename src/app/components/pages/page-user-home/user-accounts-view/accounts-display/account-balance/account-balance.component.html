@@ -1,7 +1,7 @@
 <div id="mainDiv">
-    <h4>Account Name</h4>
-    <h2>{{currentAccount.account_name | uppercase}}</h2>
-    <br/>
-    <h4>Account Balance</h4>
-    <h1>${{currentAccount.account_balance}}</h1>
+  <h4>Account Name</h4>
+  <h2>{{ currentAccount.account_name | uppercase }}</h2>
+  <br />
+  <h4>Account Balance</h4>
+  <h1>${{ currentAccount.account_balance.toFixed(2) }}</h1>
 </div>

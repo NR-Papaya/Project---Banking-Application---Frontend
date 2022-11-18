@@ -1,22 +1,50 @@
-#containerDiv{
-    display:flex;
-    flex-direction: column;
-    width:100%;
-    justify-content: center;
-    align-items: center;
-    
+#containerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-#TransactionsDiv{
-    width: 60%;
-
-}
-#TransactionsTable{
-    width: 100%; 
+#tableButtonGroupOutFlex, #buttonGroup{
+  width: 68%;
 }
 
-table, th, td {
-    border: 1px solid;
-    text-align: center;
-  }
+#tableButtonGroupOutFlex{ 
+  background-color: #F3F3F3;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttonGroup{
+  margin-top: 20px;
+  
+} 
+.btn-primary:active{
+  background-color: #bd3a3a !important;
+
+}
+
+.btn-primary{
+  background-color: #D9D9D9 !important;
+  color: #575449 !important;
+  font-weight: bold !important;
+  box-shadow: none !important;
+  border: none;
+} 
+
+.currentbtn{
+  background-color: #f3f3f3;
+  color: #000000 ;
+  font-weight: bold ;
+  box-shadow: none ;
+  border: none;
+}
+
+
 

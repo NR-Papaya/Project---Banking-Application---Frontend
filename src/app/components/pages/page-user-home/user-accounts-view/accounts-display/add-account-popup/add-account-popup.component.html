@@ -1,0 +1,31 @@
+
+<div>
+  <h1 mat-dialog-title>Create New Account </h1>
+
+  <div mat-dialog-content>
+    <p>What is the Account Type?</p>
+
+    <mat-form-field MatFormFieldAppearance ="fill">
+      <mat-label>accountName</mat-label> 
+        <input matInput [(ngModel)]="accountName" />
+    </mat-form-field>
+ 
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select  (selectionChange)="changeAccountNameOption($event.value)">
+        <mat-option  value='Savings'>Savings</mat-option>
+        <mat-option   value='checkings'>Checking</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+  </div>
+ 
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button (click)="createAccount()" cdkFocusInitial>Create</button>
+  </div> 
+
+</div>

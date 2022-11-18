@@ -1,28 +1,43 @@
-
 <div id="containerDiv">
-    <app-accounts-display></app-accounts-display>
-    <!-- Start transaction Table  --> 
-    <div id="TransactionsDiv">
-        <table id = "TransactionsTable">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>From</th>
-                <th>Amount</th>
-                <th>Type</th>
-              </tr>
-             </thead>
-             <tbody>
-               <tr *ngFor="let tempTransaction of transactionList;index as i" [style]="{'background-color': i%2 == 0 ? '#D9D9D9':'#FFFFFF'}">
-                 <td> {{tempTransaction.tx_date}} </td>  
-                 <td>{{tempTransaction.tx_foreign_account_number }}</td> 
-                 <td *ngIf = "tempTransaction.tx_type =='debit' " [style]="{'color':'red','border-color':'black'}">$ -{{tempTransaction.tx_value}}</td>
-                 <td *ngIf = "tempTransaction.tx_type =='credit' " [style]="{'color':'green','border-color':'black'}">$ +{{tempTransaction.tx_value}}</td>
-                 <td>{{tempTransaction.tx_type}}</td>
-               </tr>
-              
-            </tbody>
-          </table> 
-    </div>
-    
+  <app-accounts-display
+    (accountChangeEvent)="updateActiveAccount($event)"
+    [updateTablePassedFun]="updateTable"
+    [account_number]="activeAccount.account_number"
+    [accountList]="accountList"
+    [updateAccountListPassedFun]="updateAccountList"
+  ></app-accounts-display>
+
+  <div id="buttonGroup">
+    <button
+      id="btn1"
+      type="button"
+      class="btn btn-primary"
+      (click)="setAllTransactions(); changeAllTransactionsbtnStyle()"
+    >
+      All Transactions
+    </button>
+    <button
+      id="btn2"
+      type="button"
+      class="btn btn-primary"
+      (click)="setExpenses(); changeExpensesbtnStyle()"
+    >
+      Expenses
+    </button>
+    <button
+      id="btn3"
+      type="button"
+      class="btn btn-primary"
+      (click)="setDeposits(); changeDepositsbtnStyle()"
+    >
+      Deposits
+    </button>
+  </div>
+
+  <div id="tableButtonGroupOutFlex">
+    <h5>{{ tableName }}</h5>
+    <app-transactions-table
+      [transactionList]="currentTransactionList"
+    ></app-transactions-table>
+  </div>
 </div>

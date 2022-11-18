@@ -1,16 +1,36 @@
-#accountList{
-    display:flex;
-    background-color: rgba(162, 83, 83, 0.414);
-    width:fit-content;
-    height:fit-content;
-    margin: 0px 30px;
+#accountList {
+  display: flex;
+  background-color: rgba(162, 83, 83, 0.414);
+  width: 900px;
+  overflow-x: scroll;
+  height: fit-content;
+  margin: 0px 30px;
 }
 
-#mainDiv{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:fit-content;
-    background-color: rgba(211, 211, 211, 0.566);
-    padding: 10px 0px;
+#mainDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background-color: rgba(211, 211, 211, 0.566);
+  padding: 10px 0px;
 }
+
+#close-image img {
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+#close-image {
+  margin: 0 15px;
+}
+
+/* button {
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+} */

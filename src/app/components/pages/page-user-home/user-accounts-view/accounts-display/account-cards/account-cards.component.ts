@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AccountModel } from 'src/app/models/accountModel';
 
 @Component({
@@ -11,9 +11,14 @@ export class AccountCardsComponent implements OnInit {
   @Input()
   account:any;
   
+  @Output()
+  emitAccount = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  updateCurrentAccount(accountNumber:number){
+    this.emitAccount.emit(accountNumber)
+  }
 }

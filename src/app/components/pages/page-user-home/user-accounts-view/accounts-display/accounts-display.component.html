@@ -1,11 +1,18 @@
 <div id="mainDiv">
+  <button id="close-image" (click)="openDialog()">
+    <img src="../../../../../../assets/images/plus_Icon.png" />
+  </button>
   <div id="accountList">
     <app-account-cards
       *ngFor="let acct of accountList"
       [account]="acct"
+      (emitAccount)="updateActiveAccount($event)"
     ></app-account-cards>
   </div>
+<button (click)="openDialogTransfer()">Transfer</button>
   <div id="accountSummary">
     <app-account-balance [currentAccount]="activeAccount"></app-account-balance>
   </div>
 </div>
+
+

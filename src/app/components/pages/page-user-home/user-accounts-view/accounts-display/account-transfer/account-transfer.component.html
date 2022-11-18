@@ -1,0 +1,39 @@
+<div id="mainDiv">
+  <div>
+    <h6>From:</h6>
+    <mat-form-field>
+      <mat-select  [(ngModel)]="firstAccount">
+        <mat-option *ngFor="let account of accountList" [value]="account"
+          >{{ account.account_name }} : ${{
+            account.account_balance.toFixed(2)
+          }}</mat-option
+        >
+        <mat-dialog-content></mat-dialog-content>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <h6>To:</h6>
+    <mat-form-field>
+      <mat-select  [(ngModel)]="secondAccount">
+        <mat-option *ngFor="let account of accountList" [value]="account"
+          >{{ account.account_name }} : ${{
+            account.account_balance.toFixed(2)
+          }}</mat-option
+        >
+        <mat-dialog-content></mat-dialog-content>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <h6>Amount:</h6>
+    <input
+      class="form-control form-control-sm"
+      type="number"
+      placeholder="Amount to transfer"
+      [(ngModel)]="amount"
+    />
+    <p id="errorMessage" *ngIf="errorDisplay">{{ errorDisplay }}</p>
+  </div>
+  <button (click)="submitTransfer()">Proceed</button>
+</div>

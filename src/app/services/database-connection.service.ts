@@ -12,6 +12,8 @@ import { RegisterModel } from '../models/registerModel';
 import { AccountModel } from '../models/accountModel';
 import { TransactionModel } from '../models/TransactionModel';
 import { ProfileModel } from '../models/profileModel';
+import { TransferModel } from '../models/TransferModel';
+
 
 @Injectable({
   providedIn: 'root',
@@ -57,20 +59,15 @@ export class DatabaseConnectionService {
     );
   }
 
-  retrieveTransactions( accountNumber: number): Observable<any>{
-
-      
+  retrieveTransactions(accountNumber: number): Observable<any> {
     let myparams = new HttpParams().set('tx_account_number', accountNumber);
 
-    let url ='http://localhost:8080/MyAccount/Transactions';
+    let url = 'http://localhost:8080/MyAccount/Transactions';
 
-    return this.httpClient.get<TransactionModel[]>(
-      url,  
-      {
-        params: myparams,
-        withCredentials:true 
-      } 
-    );
+    return this.httpClient.get<TransactionModel[]>(url, {
+      params: myparams,
+      withCredentials: true,
+    });
   }
   
   retrieveUserInfo(): Observable<ProfileModel> {
@@ -82,6 +79,37 @@ export class DatabaseConnectionService {
 
 
 
+  transfer(transferModel: TransferModel): Observable<any> {
+    let body = JSON.stringify(transferModel);
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+    return this.httpClient
+      .put<any>('http://localhost:8080/Accounts/Transfer', body, {
+        headers,
+        observe: 'response',
+        withCredentials: true,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  addAccount(account: AccountModel): Observable<any> {
+    let body = JSON.stringify(account); 
+
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+    
+    return this.httpClient
+      .post<any>('http://localhost:8080/Accounts/Add', body, {
+        headers,
+        observe: 'response',
+        withCredentials: true,
+      })
+      .pipe(catchError(this.handleError));
+  }
   handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }

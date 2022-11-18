@@ -1,4 +1,7 @@
 <div id="mainDiv">
+    <button id="close-image" (click)="openDialog()"> 
+      <img src="../../../../../../assets/images/plus_Icon.png">
+    </button>
   <div id="accountList">
     <app-account-cards
       *ngFor="let acct of accountList"
@@ -11,10 +14,4 @@
     <app-account-balance [currentAccount]="activeAccount"></app-account-balance>
   </div>
 </div>
-<div id="transferDiv">
-  <button (click)="toggleTransfer(!showTransfer)">Transfer</button>
-  <app-account-transfer
-    [accountList]="accountList"
-    *ngIf="showTransfer"
-  ></app-account-transfer>
-</div>
+ 

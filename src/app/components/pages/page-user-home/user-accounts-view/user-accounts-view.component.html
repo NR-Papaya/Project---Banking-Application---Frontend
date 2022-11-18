@@ -1,5 +1,13 @@
 <div id="containerDiv">
-  <app-accounts-display (accountChangeEvent)="updateActiveAccount($event)"></app-accounts-display> 
+  <app-accounts-display 
+    (accountChangeEvent)="updateActiveAccount($event);"
+    
+    [updateTablePassedFun]="updateTable"
+    [account_number]="activeAccount.account_number"
+    [accountList]="accountList"
+    [updateAccountListPassedFun]="updateAccountList"
+  
+  ></app-accounts-display> 
 
   <div id="buttonGroup">
     <button id="btn1" type="button" class="btn btn-primary" (click)="setAllTransactions();changeAllTransactionsbtnStyle()"> All Transactions </button> 
@@ -10,6 +18,6 @@
   <div id="tableButtonGroupOutFlex"> 
     <h5>{{tableName}}</h5>
     <app-transactions-table [transactionList]="currentTransactionList"></app-transactions-table>
-  </div>
+  </div> 
 
 </div>

@@ -11,6 +11,7 @@ import { LoginCredentialModel } from '../models/loginCredentialModel';
 import { RegisterModel } from '../models/registerModel';
 import { AccountModel } from '../models/accountModel';
 import { TransactionModel } from '../models/TransactionModel';
+import { ProfileModel } from '../models/profileModel';
 
 @Injectable({
   providedIn: 'root',
@@ -71,8 +72,19 @@ export class DatabaseConnectionService {
       } 
     );
   }
+  
+  retrieveUserInfo(): Observable<ProfileModel> {
+    return this.httpClient.get<ProfileModel>(
+      'http://localhost:8080/user',
+      { withCredentials: true }
+    );
+  }
+
+
 
   handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }
 }
+
+

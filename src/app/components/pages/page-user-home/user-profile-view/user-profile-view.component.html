@@ -11,15 +11,22 @@
             <p>Password:</p>
         </div>
        <div id = "userInfo">
-            <p>(user_name)</p>
-            <p>(user_first_name)</p>
-            <p>(user_last_name)</p>
-            <p>(user_email)</p>
-            <p>(user_password)</p>
+            <p>{{user.user_name}}</p>
+            <p>{{user.user_first_name}}</p>
+            <p>{{user.user_last_name}}</p>
+            <p>{{user.user_email}}</p>
+            <p>XXXXXXXXXX</p>
+            
        </div>
        <div id = "buttons">
-        <button mat-button id = "changeEmail">Change Email</button>
-        <button mat-button id = "changePassword">Change Password</button>
-       </div>
+            <div id = "emailButton" (click) = "toggleEmailBox()">
+                <button mat-button id = "changeEmail">Change Email</button>
+                <input *ngIf = "showEmailBox">
+            </div>
+            <div id = "passwordButton" (click) = "togglePasswordBox()">
+                <button mat-button id = "changePassword">Change Password</button>
+                <input *ngIf = "showPasswordBox">
+            </div>
+        </div>
     </div>
 </div>

@@ -10,6 +10,8 @@ import { DatabaseConnectionService } from 'src/app/services/database-connection.
 export class AccountsDisplayComponent implements OnInit {
   accountList: AccountModel[] = [];
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
+  
+  showTransfer:boolean = false;
 
   constructor(private dbService: DatabaseConnectionService) {}
 
@@ -35,5 +37,9 @@ export class AccountsDisplayComponent implements OnInit {
       this.activeAccount = currentAccount;
       this.accountChangeEvent.emit(currentAccount);
     }
+  }
+  
+  toggleTransfer(state:boolean){
+    this.showTransfer = state;
   }
 }

@@ -72,8 +72,9 @@ export class AccountTransferComponent implements OnInit {
             )
           )
           .subscribe((data) => {
-            console.log(data.status);
-            // this.router.navigate(['/userhome']);
+            if (data.status == 200){
+              this.router.navigate(['/userhome']);
+            }
           });
       }
     }

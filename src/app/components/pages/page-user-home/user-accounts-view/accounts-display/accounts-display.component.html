@@ -12,6 +12,9 @@
   </div>
 </div>
 <div id="transferDiv">
-  <button>Transfer</button>
-  <app-account-transfer [accountList]="accountList"></app-account-transfer>
+  <button (click)="toggleTransfer(!showTransfer)">Transfer</button>
+  <app-account-transfer
+    [accountList]="accountList"
+    *ngIf="showTransfer"
+  ></app-account-transfer>
 </div>

@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <h6>From:</h6>
+    <input
+      class="form-control form-control-sm"
+      type="number"
+      placeholder="From - Account Number"
+      [(ngModel)]="firstAccount"
+      (change)="onFirstAccountChange()"
+    />
+    <p>Balance: {{firstBalance}}</p>
+  </div>
+  <div>
+    <h6>To:</h6>
+    <input
+      class="form-control form-control-sm"
+      type="number"
+      placeholder="To - Account Number"
+      [(ngModel)]="secondAccount"
+      (change)="onSecondAccountChange()"
+    />
+    <p>Balance: {{secondBalance}}</p>
+  </div>
+  <div>
+    <h6>Amount:</h6>
+    <input
+      class="form-control form-control-sm"
+      type="number"
+      placeholder="Amount to transfer"
+      [(ngModel)]="amount"
+    />
+    <p id="errorMessage" *ngIf="errorDisplay">{{errorDisplay}}</p>
+  </div>
+  <button (click)="submitTransfer()">Proceed</button>
+</div>

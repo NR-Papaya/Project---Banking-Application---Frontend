@@ -1,6 +1,17 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  Input,
+  Inject,
+} from '@angular/core';
 import { AccountModel } from 'src/app/models/accountModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
+import { MatDialog } from '@angular/material/dialog';
+
+import { AddAccountPopupComponent } from './add-account-popup/add-account-popup.component';
+import { TransactionModel } from 'src/app/models/TransactionModel';
 
 @Component({
   selector: 'app-accounts-display',
@@ -8,24 +19,30 @@ import { DatabaseConnectionService } from 'src/app/services/database-connection.
   styleUrls: ['./accounts-display.component.css'],
 })
 export class AccountsDisplayComponent implements OnInit {
-  accountList: AccountModel[] = [];
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
-  constructor(private dbService: DatabaseConnectionService) {}
+  showTransfer: boolean = false;
 
-  ngOnInit(): void {
-    this.dbService.retrieveAccounts().subscribe((data) => {
-      this.accountList = data;
+  constructor(
+    private dbService: DatabaseConnectionService,
+    public dialogRef: MatDialog
+  ) {}
 
-      if (data.length) {
-        this.accountList = data;
-        this.activeAccount = data[0];
-      }
-    });
-  }
+  ngOnInit(): void {}
 
   @Output()
   accountChangeEvent = new EventEmitter();
+
+  @Input()
+  accountList!: AccountModel[];
+  @Input()
+  updateTablePassedFun!: (table: TransactionModel[]) => void;
+
+  @Input()
+  updateAccountListPassedFun!: () => void;
+
+  @Input()
+  account_number?: number;
 
   updateActiveAccount(accountNumber: number) {
     let currentAccount = this.accountList.find(
@@ -35,5 +52,15 @@ export class AccountsDisplayComponent implements OnInit {
       this.activeAccount = currentAccount;
       this.accountChangeEvent.emit(currentAccount);
     }
+  }
+
+  openDialog() {
+    this.dialogRef.open(AddAccountPopupComponent, {
+      data: {
+        updateTablePassedFun: this.updateTablePassedFun,
+        account_numer: this.account_number,
+        updateAccountListPassedFun: this.updateAccountListPassedFun,
+      },
+    });
   }
 }

@@ -21,14 +21,20 @@ export class UserProfileViewComponent implements OnInit {
     })
   }
 
+  email: string = "default";
   showEmailBox: boolean = false;
   toggleEmailBox() {
     this.showEmailBox = !this.showEmailBox;
   }
 
+  password: string = "default"
   showPasswordBox: boolean = false;
   togglePasswordBox() {
     this.showPasswordBox = !this.showPasswordBox;
+  }
+
+  changeUserName() {
+   // this.http.put() 
   }
 
 }

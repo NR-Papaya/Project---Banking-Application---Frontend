@@ -21,12 +21,12 @@
        <div id = "buttons">
             <div id = "emailButton" (click) = "toggleEmailBox()">
                 <button mat-button id = "changeEmail">Change Email</button>
-                <input *ngIf = "showEmailBox">
             </div>
+            <input *ngIf = "showEmailBox" [(ngModel)] = "email" type = "text">
             <div id = "passwordButton" (click) = "togglePasswordBox()">
                 <button mat-button id = "changePassword">Change Password</button>
-                <input *ngIf = "showPasswordBox">
             </div>
+            <input *ngIf = "showPasswordBox" [(ngModel)] = "password" type = "text">
         </div>
     </div>
 </div>

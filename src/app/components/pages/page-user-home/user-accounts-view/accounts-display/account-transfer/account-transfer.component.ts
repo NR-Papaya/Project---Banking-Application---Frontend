@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AccountModel } from 'src/app/models/accountModel';
 import { TransferModel } from 'src/app/models/TransferModel';
@@ -11,69 +12,49 @@ import { DatabaseConnectionService } from 'src/app/services/database-connection.
 })
 export class AccountTransferComponent implements OnInit {
   @Input()
-  accountList: AccountModel[] = [];
+  accountList;
+  errorDisplay: string = '';
+  updateAccountList;
 
   amount: number = 0.0;
-  firstAccount: number = 0;
-  secondAccount: number = 0;
-
-  firstBalance: number = 0.0;
-  secondBalance: number = 0.0;
-
-  errorDisplay: string = '';
+  firstAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
+  secondAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
   constructor(
     private dbService: DatabaseConnectionService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public dialogRef: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.accountList = data.accountList;
+    this.updateAccountList = data.updateAccountList;
+  }
 
   ngOnInit(): void {}
 
-  onFirstAccountChange() {
-    let accountSelected = this.accountList.find(
-      (account) => account.account_number == this.firstAccount
-    );
-    if (accountSelected) {
-      this.firstBalance = accountSelected.account_balance;
-    } else {
-      this.firstBalance = 0.0;
-    }
-  }
-  onSecondAccountChange() {
-    let accountSelected = this.accountList.find(
-      (account) => account.account_number == this.secondAccount
-    );
-    if (accountSelected) {
-      this.secondBalance = accountSelected.account_balance;
-    } else {
-      this.secondBalance = 0.0;
-    }
-  }
   submitTransfer() {
-    let primaryAccount = this.accountList.find(
-      (account) => account.account_number == this.firstAccount
-    );
-    let secondaryAccount = this.accountList.find(
-      (account) => account.account_number == this.secondAccount
-    );
+    let primaryAccount = this.firstAccount;
+    let secondaryAccount = this.secondAccount;
 
     if (primaryAccount && secondaryAccount) {
       if (this.amount > primaryAccount.account_balance) {
-        this.errorDisplay = 'Amount exceeds amount available for this account.';
+        this.errorDisplay = 'Amount exceeds the balance available.';
+      } else if (primaryAccount == secondaryAccount) {
+        this.errorDisplay = 'First and Second accounts cannot be the same.';
       } else {
-        //do service call to api here pass in transferModel
         this.dbService
           .transfer(
             new TransferModel(
-              this.firstAccount,
-              this.secondAccount,
+              this.firstAccount.account_number,
+              this.secondAccount.account_number,
               this.amount,
-              `Transfer from Account:${this.firstAccount} to Account:${this.secondAccount}`
+              `Transfer from Account: ${this.firstAccount.account_number} to Account: ${this.secondAccount.account_number}`
             )
           )
           .subscribe((data) => {
-            if (data.status == 200){
-              this.router.navigate(['/userhome']);
+            if (data.status == 200) {
+              this.dialogRef.closeAll();
+              this.updateAccountList();
             }
           });
       }

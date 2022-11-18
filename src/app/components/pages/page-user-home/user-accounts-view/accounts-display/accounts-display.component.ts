@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  Input,
-  Inject,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { AccountModel } from 'src/app/models/accountModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -29,13 +22,18 @@ export class AccountsDisplayComponent implements OnInit {
     public dialogRef: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      console.log(this.accountList);
+    }, 5000);
+  }
 
   @Output()
   accountChangeEvent = new EventEmitter();
 
   @Input()
   accountList!: AccountModel[];
+
   @Input()
   updateTablePassedFun!: (table: TransactionModel[]) => void;
 
@@ -70,6 +68,11 @@ export class AccountsDisplayComponent implements OnInit {
   }
 
   openDialogTransfer() {
-    this.dialogRef.open(AccountTransferComponent);
+    this.dialogRef.open(AccountTransferComponent, {
+      data: {
+        accountList: this.accountList,
+        updateAccountList: this.updateAccountListPassedFun,
+      },
+    });
   }
 }

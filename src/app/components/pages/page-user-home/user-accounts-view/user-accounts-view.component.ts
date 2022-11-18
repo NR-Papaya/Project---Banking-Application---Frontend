@@ -13,7 +13,7 @@ export class UserAccountsViewComponent implements OnInit {
   currentTransactionList: TransactionModel[] = [];
   accountList: AccountModel[] = [];
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
-  tableName:string="All Transactions"
+  tableName: string = 'All Transactions';
 
   constructor(private dbService: DatabaseConnectionService) {}
 
@@ -49,82 +49,94 @@ export class UserAccountsViewComponent implements OnInit {
         }
       });
   }
-  
-  updateTable=(table:TransactionModel[])=>{
-    this.currentTransactionList=table;
-  }
- 
-  updateAccountList=()=>{
-    this.dbService.retrieveAccounts().subscribe((data) => {
-      this.accountList = data; 
-      if (data.length) {
-        this.accountList = data; 
-        
-      }
-    });  
-  }
 
-  setExpenses(){
-    this.tableName="Expenses";
-    let debitList = this.transactionList.filter((transaction:TransactionModel)=> transaction.tx_type == "debit")
-    if(debitList.length){
+  updateTable = (table: TransactionModel[]) => {
+    this.currentTransactionList = table;
+  };
+
+  updateAccountList = () => {
+    this.dbService.retrieveAccounts().subscribe((data) => {
+      this.accountList = data;
+      if (data.length) {
+        this.accountList = data;
+        this.refreshActiveAccounts();
+      }
+    });
+  };
+
+  refreshActiveAccounts = () => {
+    let selectedAccount = this.accountList.find(
+      (account) => account.account_number == this.activeAccount.account_number
+    );
+    if (selectedAccount) {
+      console.log(selectedAccount);
+      this.activeAccount = selectedAccount;
+    }
+  };
+
+  setExpenses() {
+    this.tableName = 'Expenses';
+    let debitList = this.transactionList.filter(
+      (transaction: TransactionModel) => transaction.tx_type == 'debit'
+    );
+    if (debitList.length) {
       this.currentTransactionList = debitList;
     }
   }
-  
-  setDeposits(){
-    this.tableName="Deposits";
-    let creditList = this.transactionList.filter((transaction:TransactionModel)=> transaction.tx_type == "credit")
-    if(creditList.length){
+
+  setDeposits() {
+    this.tableName = 'Deposits';
+    let creditList = this.transactionList.filter(
+      (transaction: TransactionModel) => transaction.tx_type == 'credit'
+    );
+    if (creditList.length) {
       this.currentTransactionList = creditList;
     }
-    
   }
-  
-  setAllTransactions(){
-    this.tableName="All Transactions";
+
+  setAllTransactions() {
+    this.tableName = 'All Transactions';
     this.currentTransactionList = this.transactionList;
   }
 
-  changeAllTransactionsbtnStyle(){
+  changeAllTransactionsbtnStyle() {
     let btn2 = document.getElementById('btn1');
     //make this button current style
-    btn2?.classList.remove("btn-primary");
-    btn2?.classList.add("currentbtn");
+    btn2?.classList.remove('btn-primary');
+    btn2?.classList.add('currentbtn');
 
     //make other buttons not selected
     let btn1 = document.getElementById('btn2');
     btn1?.classList.add('btn-primary');
 
     let btn3 = document.getElementById('btn3');
-    btn3?.classList.add('btn-primary'); 
+    btn3?.classList.add('btn-primary');
   }
 
-  changeExpensesbtnStyle(){
+  changeExpensesbtnStyle() {
     let btn2 = document.getElementById('btn2');
     //make this button current style
-    btn2?.classList.remove("btn-primary");
-    btn2?.classList.add("currentbtn");
+    btn2?.classList.remove('btn-primary');
+    btn2?.classList.add('currentbtn');
     //make other buttons not selected
     let btn1 = document.getElementById('btn1');
-   
+
     btn1?.classList.add('btn-primary');
 
     let btn3 = document.getElementById('btn3');
-    btn3?.classList.add('btn-primary'); 
+    btn3?.classList.add('btn-primary');
   }
 
-  changeDepositsbtnStyle(){
+  changeDepositsbtnStyle() {
     let btn2 = document.getElementById('btn3');
     //make this button current style
-    btn2?.classList.remove("btn-primary");
-    btn2?.classList.add("currentbtn");
+    btn2?.classList.remove('btn-primary');
+    btn2?.classList.add('currentbtn');
     //make other buttons not selected
     let btn1 = document.getElementById('btn1');
     btn1?.classList.add('btn-primary');
 
     let btn3 = document.getElementById('btn2');
-    btn3?.classList.add('btn-primary'); 
+    btn3?.classList.add('btn-primary');
   }
-
 }

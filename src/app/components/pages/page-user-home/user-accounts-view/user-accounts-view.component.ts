@@ -50,6 +50,20 @@ export class UserAccountsViewComponent implements OnInit {
       });
   }
   
+  updateTable=(table:TransactionModel[])=>{
+    this.currentTransactionList=table;
+  }
+ 
+  updateAccountList=()=>{
+    this.dbService.retrieveAccounts().subscribe((data) => {
+      this.accountList = data; 
+      if (data.length) {
+        this.accountList = data; 
+        
+      }
+    });  
+  }
+
   setExpenses(){
     this.tableName="Expenses";
     let debitList = this.transactionList.filter((transaction:TransactionModel)=> transaction.tx_type == "debit")

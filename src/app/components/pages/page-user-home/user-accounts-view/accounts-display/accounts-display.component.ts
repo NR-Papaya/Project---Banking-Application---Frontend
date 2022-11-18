@@ -53,6 +53,10 @@ export class AccountsDisplayComponent implements OnInit {
       this.accountChangeEvent.emit(currentAccount);
     }
   }
+  
+  toggleTransfer(state:boolean){
+    this.showTransfer = state;
+  }
 
   openDialog() {
     this.dialogRef.open(AddAccountPopupComponent, {

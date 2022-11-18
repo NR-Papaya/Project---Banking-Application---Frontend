@@ -12,9 +12,7 @@ import { AddAccountPopupComponent } from './user-accounts-view/accounts-display/
 export class PageUserHomeComponent implements OnInit {
   
   viewState:number = 1;
-
   
-
   constructor(public dialogRef: MatDialog) {}
 
   ngOnInit(): void {
@@ -22,12 +20,4 @@ export class PageUserHomeComponent implements OnInit {
   changeViewState(viewNum:number){
     this.viewState = viewNum;
   }
-  
-
-   
-
-
-
-
-  
 }

@@ -8,13 +8,16 @@
       [account]="acct"
       (emitAccount)="updateActiveAccount($event)"
     ></app-account-cards>
-  </div>
+  </div> kkkk
 
   <div id="accountSummary">
     <app-account-balance [currentAccount]="activeAccount"></app-account-balance>
   </div>
 </div>
-<div>
-  <button>Transfer</button>
-  <app-account-transfer></app-account-transfer>
+<div id="transferDiv">
+  <button (click)="toggleTransfer(!showTransfer)">Transfer</button>
+  <app-account-transfer
+    [accountList]="accountList"
+    *ngIf="showTransfer"
+  ></app-account-transfer>
 </div>

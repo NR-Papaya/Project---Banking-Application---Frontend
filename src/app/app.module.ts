@@ -19,7 +19,8 @@ import { AccountsDisplayComponent } from './components/pages/page-user-home/user
 import { AccountCardsComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-cards/account-cards.component';
 import { AccountBalanceComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-balance/account-balance.component';
 import { TransactionsTableComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/transactions-table/transactions-table.component';
-import { AddAccountPopupComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/add-account-popup/add-account-popup.component';
+import { AddAccountPopupComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/add-account-popup/add-account-popup.component'
+import { AccountTransferComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-transfer/account-transfer.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
@@ -49,6 +50,8 @@ import { AccountTransferComponent } from './components/pages/page-user-home/user
     TransactionsTableComponent,
     AddAccountPopupComponent,
     AccountTransferComponent,
+
+   
   ],
   imports: [
     BrowserModule,

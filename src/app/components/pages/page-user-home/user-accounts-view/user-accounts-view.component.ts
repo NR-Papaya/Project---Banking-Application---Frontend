@@ -49,7 +49,7 @@ export class UserAccountsViewComponent implements OnInit {
         }
       });
   }
-
+  
   updateTable=(table:TransactionModel[])=>{
     this.currentTransactionList=table;
   }

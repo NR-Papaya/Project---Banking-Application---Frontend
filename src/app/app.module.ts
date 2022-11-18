@@ -30,7 +30,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccountTransferComponent } from './components/pages/page-user-home/user-accounts-view/accounts-display/account-transfer/account-transfer.component';
 
 @NgModule({
   declarations: [

@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { AddAccountPopupComponent } from './add-account-popup/add-account-popup.component';
 import { TransactionModel } from 'src/app/models/TransactionModel';
+import { AccountTransferComponent } from './account-transfer/account-transfer.component';
 
 @Component({
   selector: 'app-accounts-display',
@@ -53,8 +54,8 @@ export class AccountsDisplayComponent implements OnInit {
       this.accountChangeEvent.emit(currentAccount);
     }
   }
-  
-  toggleTransfer(state:boolean){
+
+  toggleTransfer(state: boolean) {
     this.showTransfer = state;
   }
 
@@ -66,5 +67,9 @@ export class AccountsDisplayComponent implements OnInit {
         updateAccountListPassedFun: this.updateAccountListPassedFun,
       },
     });
+  }
+
+  openDialogTransfer() {
+    this.dialogRef.open(AccountTransferComponent);
   }
 }

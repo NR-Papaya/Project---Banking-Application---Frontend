@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountModel } from 'src/app/models/accountModel';
 import { TransferModel } from 'src/app/models/TransferModel';
@@ -24,7 +24,7 @@ export class AccountTransferComponent implements OnInit {
 
   constructor(
     private dbService: DatabaseConnectionService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {}

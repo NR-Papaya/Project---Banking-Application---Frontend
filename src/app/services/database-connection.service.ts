@@ -110,6 +110,24 @@ export class DatabaseConnectionService {
       })
       .pipe(catchError(this.handleError));
   }
+  logOut(): Observable<any> {
+    let body={}
+     
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+    
+    return this.httpClient
+      .post<any>('http://localhost:8080/logOut',body, {
+        headers,
+        observe: 'response',
+        withCredentials: true,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+
   handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }

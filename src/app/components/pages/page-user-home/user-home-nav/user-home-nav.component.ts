@@ -1,4 +1,6 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
 
 @Component({
   selector: 'app-user-home-nav',
@@ -8,7 +10,10 @@ import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 export class UserHomeNavComponent implements OnInit {
   optionsView: number = 1;
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private dbService: DatabaseConnectionService,
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,6 +27,22 @@ export class UserHomeNavComponent implements OnInit {
   
   checkViewState() {
     console.log(this.optionsView);
+  }
+
+  onLogOut(){
+    console.log("logging out")
+
+    this.dbService.logOut().subscribe(
+      ()=>{//updateAccountList after adding newAccount
+        console.log("logged out")
+        this.router.navigateByUrl('/');
+      } 
+    );
+
+
+
+   
+
   }
   
 }

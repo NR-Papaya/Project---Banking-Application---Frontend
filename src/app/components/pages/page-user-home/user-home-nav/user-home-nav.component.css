@@ -6,9 +6,6 @@
 
 #selectorDiv {
     margin: 10px 20px;
+    display: flex;
 }
 
-#greetingDiv {
-  margin: 10px 0px;
-  justify-self: center;
-}

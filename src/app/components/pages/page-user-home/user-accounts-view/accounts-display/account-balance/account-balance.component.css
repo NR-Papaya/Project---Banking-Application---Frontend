@@ -1,11 +1,16 @@
-#mainDiv{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:white;
-    width: 275px;
-    height:275px;
-    border-radius: 2%;
-    justify-content: center;
-    margin: 10px 20px;
+#mainDiv {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  width: 275px;
+  height: 275px;
+  border-radius: 2%;
+  justify-content: center;
+  margin: 10px 20px;
+}
+
+#accountNameHeader {
+  font-weight: bold;
 }

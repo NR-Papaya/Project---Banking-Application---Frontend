@@ -18,15 +18,17 @@
             <p>XXXXXXXXXX</p>
             
        </div>
-       <div id = "buttons">
+       <div id = "buttons"> 
             <div id = "emailButton" (click) = "toggleEmailBox()">
                 <button mat-button id = "changeEmail">Change Email</button>
             </div>
-            <input *ngIf = "showEmailBox" [(ngModel)] = "email" type = "text">
+            <input *ngIf = "showEmailBox" [(ngModel)] = "email" type = "text" (keyup.enter)="enterPressedonEmailInput()">
+           
+           
             <div id = "passwordButton" (click) = "togglePasswordBox()">
                 <button mat-button id = "changePassword">Change Password</button>
             </div>
-            <input *ngIf = "showPasswordBox" [(ngModel)] = "password" type = "text">
+            <input *ngIf = "showPasswordBox" [(ngModel)] = "password" type = "password" (keyup.enter)="enterPressedonPasswordInput()">
         </div>
     </div>
 </div>

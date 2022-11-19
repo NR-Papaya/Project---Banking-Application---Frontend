@@ -110,6 +110,49 @@ export class DatabaseConnectionService {
       })
       .pipe(catchError(this.handleError));
   }
+
+  changeEmail(email: string): Observable<any> {
+    let emailobject ={
+      "newEmail": email
+    }
+
+    let body = JSON.stringify(emailobject);
+
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+
+    return this.httpClient
+      .put<any>('http://localhost:8080/email', body, {
+        headers,
+        observe: 'response',
+        withCredentials: true,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  changePassword(email: string): Observable<any> {
+    let emailobject ={
+      "newPassword": email
+    }
+
+    let body = JSON.stringify(emailobject);
+
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+
+    return this.httpClient
+      .put<any>('http://localhost:8080/password', body, {
+        headers,
+        observe: 'response',
+        withCredentials: true,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
   logOut(): Observable<any> {
     let body={}
      

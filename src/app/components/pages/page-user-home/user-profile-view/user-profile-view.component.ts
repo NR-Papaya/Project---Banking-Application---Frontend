@@ -10,31 +10,67 @@ import { DatabaseConnectionService } from 'src/app/services/database-connection.
 export class UserProfileViewComponent implements OnInit {
 
   user:ProfileModel = new ProfileModel("","","","","")
+  email: string = "";
+  password: string = "" 
+  showPasswordBox: boolean = false;
+  showEmailBox: boolean = false;
 
   constructor(private userService:DatabaseConnectionService) { }
 
   ngOnInit(): void {
+    // this.userService.retrieveUserInfo().subscribe((data) => {
+    //   if(data) {
+    //     this.user = data;
+        
+    //   }
+    // })
+    this.updateUserInfo();
+  }
+
+  updateUserInfo(): void{
     this.userService.retrieveUserInfo().subscribe((data) => {
       if(data) {
         this.user = data;
+        this.email=data.user_email;
       }
     })
   }
 
-  email: string = "default";
-  showEmailBox: boolean = false;
+  
+
   toggleEmailBox() {
     this.showEmailBox = !this.showEmailBox;
   }
 
-  password: string = "default"
-  showPasswordBox: boolean = false;
+  enterPressedonEmailInput(){
+    console.log("enterPressedonEmailInput: started");
+ 
+    this.userService.changeEmail(this.email).subscribe(
+      (data)=>{
+        console.log("returning from change email request");
+        this.updateUserInfo();
+        this.toggleEmailBox(); 
+      } 
+    ) 
+  }
+
   togglePasswordBox() {
     this.showPasswordBox = !this.showPasswordBox;
   }
 
-  changeUserName() {
-   // this.http.put() 
+
+  enterPressedonPasswordInput(){
+    console.log("Password: started");
+ 
+    this.userService.changePassword(this.password).subscribe(
+      (data)=>{
+        console.log("returning from change password request");
+        this.updateUserInfo();
+        this.togglePasswordBox(); 
+      } 
+    ) 
   }
+
+ 
 
 }

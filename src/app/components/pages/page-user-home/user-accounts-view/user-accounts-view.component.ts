@@ -44,6 +44,7 @@ export class UserAccountsViewComponent implements OnInit {
       .retrieveTransactions(account.account_number)
       .subscribe((data) => {
         if (data.length) {
+          console.log(data[0])
           this.transactionList = data.sort(this.sortTransactions);
           this.currentTransactionList = data.sort(this.sortTransactions);
         }
@@ -141,26 +142,6 @@ export class UserAccountsViewComponent implements OnInit {
   }
 
   sortTransactions = (txA: TransactionModel, txB: TransactionModel) => {
-    let txADate = new Date(txA.tx_date);
-    let txBDate = new Date(txB.tx_date);
-    if (txADate.getFullYear() > txBDate.getFullYear()) {
-      return -1;
-    } else if (txADate.getFullYear() < txBDate.getFullYear()) {
-      return 1;
-    } else {
-      if (txADate.getMonth() > txBDate.getMonth()) {
-        return -1;
-      } else if (txADate.getMonth() < txBDate.getMonth()) {
-        return 1;
-      } else {
-        if (txADate.getDate() > txBDate.getDate()) {
-          return -1;
-        } else if (txADate.getDate() < txBDate.getDate()) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-    }
+    return txB.tx_id - txA.tx_id;
   };
 }

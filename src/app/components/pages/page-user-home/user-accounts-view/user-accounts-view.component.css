@@ -6,12 +6,18 @@
   align-items: center;
 }
 
-#tableButtonGroupOutFlex, #buttonGroup{
+#tableButtonGroupOutFlex,
+#buttonGroup {
   width: 68%;
 }
 
-#tableButtonGroupOutFlex{ 
-  background-color: #F3F3F3;
+app-transactions-table{
+  overflow-y: scroll;
+  height: 500px;
+}
+
+#tableButtonGroupOutFlex {
+  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -21,30 +27,31 @@
   align-items: center;
 }
 
-#buttonGroup{
+#buttonGroup {
   margin-top: 20px;
-  
-} 
-.btn-primary:active{
-  background-color: #bd3a3a !important;
-
 }
 
-.btn-primary{
-  background-color: #D9D9D9 !important;
+#transactionHeader {
+  margin: 15px 0px 0px 0px;
+  font-weight: bold;
+}
+
+.btn-primary:active {
+  background-color: #bd3a3a !important;
+}
+
+.btn-primary {
+  background-color: #d9d9d9 !important;
   color: #575449 !important;
   font-weight: bold !important;
   box-shadow: none !important;
   border: none;
-} 
-
-.currentbtn{
-  background-color: #f3f3f3;
-  color: #000000 ;
-  font-weight: bold ;
-  box-shadow: none ;
-  border: none;
 }
 
-
-
+.currentbtn {
+  background-color: #f3f3f3;
+  color: #000000;
+  font-weight: bold;
+  box-shadow: none;
+  border: none;
+}

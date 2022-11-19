@@ -132,9 +132,9 @@ export class DatabaseConnectionService {
       .pipe(catchError(this.handleError));
   }
 
-  changePassword(email: string): Observable<any> {
+  changePassword(password: string): Observable<any> {
     let emailobject ={
-      "newPassword": email
+      "newPassword": password
     }
 
     let body = JSON.stringify(emailobject);

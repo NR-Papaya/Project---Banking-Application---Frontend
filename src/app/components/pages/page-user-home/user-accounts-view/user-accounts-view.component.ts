@@ -30,7 +30,7 @@ export class UserAccountsViewComponent implements OnInit {
           .retrieveTransactions(this.activeAccount.account_number)
           .subscribe((data) => {
             if (data.length) {
-              this.transactionList = data;
+              this.transactionList = data.sort(this.sortTransactions);
               this.currentTransactionList = data;
             }
           });
@@ -44,8 +44,8 @@ export class UserAccountsViewComponent implements OnInit {
       .retrieveTransactions(account.account_number)
       .subscribe((data) => {
         if (data.length) {
-          this.transactionList = data;
-          this.currentTransactionList = data;
+          this.transactionList = data.sort(this.sortTransactions);
+          this.currentTransactionList = data.sort(this.sortTransactions);
         }
       });
   }
@@ -60,6 +60,8 @@ export class UserAccountsViewComponent implements OnInit {
       if (data.length) {
         this.accountList = data;
         this.refreshActiveAccounts();
+        this.updateActiveAccount(this.activeAccount);
+        this.changeAllTransactionsbtnStyle();
       }
     });
   };
@@ -69,7 +71,6 @@ export class UserAccountsViewComponent implements OnInit {
       (account) => account.account_number == this.activeAccount.account_number
     );
     if (selectedAccount) {
-      console.log(selectedAccount);
       this.activeAccount = selectedAccount;
     }
   };
@@ -139,4 +140,8 @@ export class UserAccountsViewComponent implements OnInit {
     let btn3 = document.getElementById('btn2');
     btn3?.classList.add('btn-primary');
   }
+
+  sortTransactions = (txA: TransactionModel, txB: TransactionModel) => {
+    return txB.tx_id - txA.tx_id;
+  };
 }

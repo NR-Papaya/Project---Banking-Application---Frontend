@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AccountModel } from 'src/app/models/accountModel';
 import { TransferModel } from 'src/app/models/TransferModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
+import { PageUserHomeComponent } from '../../../page-user-home.component';
 
 @Component({
   selector: 'app-account-transfer',
@@ -16,7 +17,7 @@ export class AccountTransferComponent implements OnInit {
   errorDisplay: string = '';
   updateAccountList;
 
-  amount: number = 0.0;
+  amount: number = 0;
   firstAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
   secondAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
@@ -31,6 +32,10 @@ export class AccountTransferComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  amountOnChange(amount: number) {
+    this.amount = parseFloat(amount.toFixed(2));
+  }
 
   submitTransfer() {
     let primaryAccount = this.firstAccount;
@@ -60,4 +65,5 @@ export class AccountTransferComponent implements OnInit {
       }
     }
   }
+
 }

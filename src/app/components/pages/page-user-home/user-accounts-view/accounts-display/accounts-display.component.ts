@@ -13,9 +13,10 @@ import { AccountTransferComponent } from './account-transfer/account-transfer.co
   styleUrls: ['./accounts-display.component.css'],
 })
 export class AccountsDisplayComponent implements OnInit {
+  
+  @Input()
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
-  showTransfer: boolean = false;
 
   constructor(
     private dbService: DatabaseConnectionService,
@@ -23,9 +24,6 @@ export class AccountsDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      console.log(this.accountList);
-    }, 5000);
   }
 
   @Output()
@@ -44,6 +42,7 @@ export class AccountsDisplayComponent implements OnInit {
   account_number?: number;
 
   updateActiveAccount(accountNumber: number) {
+    
     let currentAccount = this.accountList.find(
       (account) => account.account_number == accountNumber
     );
@@ -53,9 +52,6 @@ export class AccountsDisplayComponent implements OnInit {
     }
   }
 
-  toggleTransfer(state: boolean) {
-    this.showTransfer = state;
-  }
 
   openDialog() {
     this.dialogRef.open(AddAccountPopupComponent, {

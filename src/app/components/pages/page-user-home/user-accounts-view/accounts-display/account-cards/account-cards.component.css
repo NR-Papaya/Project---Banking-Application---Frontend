@@ -1,12 +1,15 @@
-#accountCard{
-    width: fit-content;
-    text-align: center;
-    margin: 10px 20px;
-    padding: 0px 10px;
+#accountCard {
+  width: 200px;
+  height: fit-content;
+  text-align: center;
+  margin: 10px 20px;
+  padding: 0px 10px;
 }
 
-#cardBody{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+#cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
 }

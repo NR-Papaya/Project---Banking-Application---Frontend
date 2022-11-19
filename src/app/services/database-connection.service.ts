@@ -59,7 +59,7 @@ export class DatabaseConnectionService {
     );
   }
 
-  retrieveTransactions(accountNumber: number): Observable<any> {
+  retrieveTransactions(accountNumber: number): Observable<TransactionModel[]> {
     let myparams = new HttpParams().set('tx_account_number', accountNumber);
 
     let url = 'http://localhost:8080/MyAccount/Transactions';
@@ -95,13 +95,13 @@ export class DatabaseConnectionService {
   }
 
   addAccount(account: AccountModel): Observable<any> {
-    let body = JSON.stringify(account); 
+    let body = JSON.stringify(account);
 
     const headers = new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     });
-    
+
     return this.httpClient
       .post<any>('http://localhost:8080/Accounts/Add', body, {
         headers,

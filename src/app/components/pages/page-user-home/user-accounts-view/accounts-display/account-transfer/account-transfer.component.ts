@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AccountModel } from 'src/app/models/accountModel';
 import { TransferModel } from 'src/app/models/TransferModel';
 import { DatabaseConnectionService } from 'src/app/services/database-connection.service';
+import { PageUserHomeComponent } from '../../../page-user-home.component';
 
 @Component({
   selector: 'app-account-transfer',
@@ -64,4 +65,5 @@ export class AccountTransferComponent implements OnInit {
       }
     }
   }
+
 }

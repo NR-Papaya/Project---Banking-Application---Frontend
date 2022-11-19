@@ -22,9 +22,6 @@ export class AccountsDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      console.log(this.accountList);
-    }, 5000);
   }
 
   @Output()
@@ -43,6 +40,7 @@ export class AccountsDisplayComponent implements OnInit {
   account_number?: number;
 
   updateActiveAccount(accountNumber: number) {
+    
     let currentAccount = this.accountList.find(
       (account) => account.account_number == accountNumber
     );

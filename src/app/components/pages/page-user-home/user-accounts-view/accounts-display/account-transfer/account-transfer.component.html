@@ -32,6 +32,7 @@
       type="number"
       placeholder="Amount to transfer"
       [(ngModel)]="amount"
+      (change)="amountOnChange(amount)"
     />
     <p id="errorMessage" *ngIf="errorDisplay">{{ errorDisplay }}</p>
   </div>

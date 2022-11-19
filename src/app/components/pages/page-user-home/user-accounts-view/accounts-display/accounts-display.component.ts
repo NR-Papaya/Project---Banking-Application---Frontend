@@ -15,7 +15,6 @@ import { AccountTransferComponent } from './account-transfer/account-transfer.co
 export class AccountsDisplayComponent implements OnInit {
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
-  showTransfer: boolean = false;
 
   constructor(
     private dbService: DatabaseConnectionService,
@@ -53,9 +52,6 @@ export class AccountsDisplayComponent implements OnInit {
     }
   }
 
-  toggleTransfer(state: boolean) {
-    this.showTransfer = state;
-  }
 
   openDialog() {
     this.dialogRef.open(AddAccountPopupComponent, {

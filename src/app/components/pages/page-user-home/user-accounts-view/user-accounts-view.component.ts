@@ -30,7 +30,7 @@ export class UserAccountsViewComponent implements OnInit {
           .retrieveTransactions(this.activeAccount.account_number)
           .subscribe((data) => {
             if (data.length) {
-              this.transactionList = data;
+              this.transactionList = data.sort(this.sortTransactions);
               this.currentTransactionList = data;
             }
           });
@@ -44,8 +44,8 @@ export class UserAccountsViewComponent implements OnInit {
       .retrieveTransactions(account.account_number)
       .subscribe((data) => {
         if (data.length) {
-          this.transactionList = data;
-          this.currentTransactionList = data;
+          this.transactionList = data.sort(this.sortTransactions);
+          this.currentTransactionList = data.sort(this.sortTransactions);
         }
       });
   }
@@ -139,4 +139,28 @@ export class UserAccountsViewComponent implements OnInit {
     let btn3 = document.getElementById('btn2');
     btn3?.classList.add('btn-primary');
   }
+
+  sortTransactions = (txA: TransactionModel, txB: TransactionModel) => {
+    let txADate = new Date(txA.tx_date);
+    let txBDate = new Date(txB.tx_date);
+    if (txADate.getFullYear() > txBDate.getFullYear()) {
+      return -1;
+    } else if (txADate.getFullYear() < txBDate.getFullYear()) {
+      return 1;
+    } else {
+      if (txADate.getMonth() > txBDate.getMonth()) {
+        return -1;
+      } else if (txADate.getMonth() < txBDate.getMonth()) {
+        return 1;
+      } else {
+        if (txADate.getDate() > txBDate.getDate()) {
+          return -1;
+        } else if (txADate.getDate() < txBDate.getDate()) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    }
+  };
 }

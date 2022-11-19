@@ -16,7 +16,7 @@ export class AccountTransferComponent implements OnInit {
   errorDisplay: string = '';
   updateAccountList;
 
-  amount: number = 0.0;
+  amount: number = 0;
   firstAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
   secondAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
@@ -31,6 +31,10 @@ export class AccountTransferComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  amountOnChange(amount: number) {
+    this.amount = parseFloat(amount.toFixed(2));
+  }
 
   submitTransfer() {
     let primaryAccount = this.firstAccount;

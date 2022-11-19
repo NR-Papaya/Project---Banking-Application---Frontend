@@ -13,6 +13,8 @@ import { AccountTransferComponent } from './account-transfer/account-transfer.co
   styleUrls: ['./accounts-display.component.css'],
 })
 export class AccountsDisplayComponent implements OnInit {
+  
+  @Input()
   activeAccount: AccountModel = new AccountModel(0, 0, '', 0, '');
 
 

@@ -9,10 +9,10 @@
       (emitAccount)="updateActiveAccount($event)"
     ></app-account-cards>
   </div>
-<button (click)="openDialogTransfer()">Transfer</button>
+  <button type="button" class="btn btn-danger" (click)="openDialogTransfer()">
+    Transfer
+  </button>
   <div id="accountSummary">
     <app-account-balance [currentAccount]="activeAccount"></app-account-balance>
   </div>
 </div>
-
-

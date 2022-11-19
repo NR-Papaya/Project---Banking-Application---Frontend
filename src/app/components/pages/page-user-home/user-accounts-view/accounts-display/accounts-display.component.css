@@ -1,7 +1,8 @@
 #accountList {
   display: flex;
   background-color: rgba(162, 83, 83, 0.414);
-  width: 900px;
+  width: fit-content;
+  max-width:900px;
   overflow-x: scroll;
   height: fit-content;
   margin: 0px 30px;

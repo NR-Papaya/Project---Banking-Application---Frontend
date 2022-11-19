@@ -1,8 +1,8 @@
 <div id="mainDiv">
-  <div>
+  <div class="forms">
     <h6>From:</h6>
     <mat-form-field>
-      <mat-select  [(ngModel)]="firstAccount">
+      <mat-select  [(ngModel)]="firstAccount" placeholder="Select Account">
         <mat-option *ngFor="let account of accountList" [value]="account"
           >{{ account.account_name }} : ${{
             account.account_balance.toFixed(2)
@@ -12,10 +12,10 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
+  <div class="forms">
     <h6>To:</h6>
     <mat-form-field>
-      <mat-select  [(ngModel)]="secondAccount">
+      <mat-select  [(ngModel)]="secondAccount" placeholder="Select Account">
         <mat-option *ngFor="let account of accountList" [value]="account"
           >{{ account.account_name }} : ${{
             account.account_balance.toFixed(2)
@@ -25,7 +25,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
+  <div class="forms">
     <h6>Amount:</h6>
     <input
       class="form-control form-control-sm"
@@ -36,5 +36,5 @@
     />
     <p id="errorMessage" *ngIf="errorDisplay">{{ errorDisplay }}</p>
   </div>
-  <button (click)="submitTransfer()">Proceed</button>
+  <button id="submitButton" type="button" class="btn btn-warning" (click)="submitTransfer()">Proceed</button>
 </div>

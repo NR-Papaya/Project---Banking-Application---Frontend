@@ -1,27 +1,40 @@
 # BankingFrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+The goal of this project was to create a front-end using Angular for an imaginary banking institution named "Human Bank". The application was constructed using Angular, Angular Material, and Bootstrap 5. The back-end for this projected can be found [here](https://github.com/Chavez102/BankingSystem_BackEnd).
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Branch and Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the application in the development environment.
+4. If a new window did not opent in your browser, navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Screenshots
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Login
 
-## Running unit tests
+## ![login page](./screenshots/Log-in.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Register
 
-## Running end-to-end tests
+## ![Register page](./screenshots/register.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Account Summary
 
-## Further help
+## ![Account Summary page](./screenshots/accounts-summary.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Transfer Money
+
+## ![Transfer Money page](./screenshots/transfer.png)
+
+#### Create Account
+
+## ![Create Account page](./screenshots/create-account.png)
+
+#### Profile Page
+
+![Profile Page](./screenshots/profile-details.png)
